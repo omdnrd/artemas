@@ -13,13 +13,21 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { HomeComponent } from './home/home.component';
+import { IncomeComponent } from './income/income.component';
+import { ExpenseComponent } from './expense/expense.component';
+import { FamilyComponent } from './family/family.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent,
+    IncomeComponent,
+    ExpenseComponent,
+    FamilyComponent
   ],
   imports: [
     AppRoutingModule,
