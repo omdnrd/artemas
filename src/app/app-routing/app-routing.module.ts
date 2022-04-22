@@ -8,12 +8,26 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from '../login/login.component';
 
-const routes: Routes = [{
-  path: "", redirectTo: "/login", pathMatch: "full"
-},
+const routes: Routes = [
   {
-  path: "login", component: LoginComponent
-}]
+    path: '' , component: LoginComponent 
+  },
+  {
+    path: 'login' , component: LoginComponent
+  },
+  {
+    path: 'home' , component: HomeComponent
+  },
+  {
+    path: 'income' , component: IncomeComponent
+  },
+  {
+    path: 'expense' , component: ExpenseComponent
+  },
+  {
+    path: 'family' , component: FamilyComponent
+  }
+];
 
 @NgModule({
   declarations: [],
@@ -21,7 +35,5 @@ const routes: Routes = [{
     CommonModule,
     RouterModule.forRoot(routes)],
   exports: [RouterModule]
-
-  
 })
 export class AppRoutingModule { }
