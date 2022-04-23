@@ -1,1 +1,13 @@
 <p>new-income works!</p>
+<div fxLayoutAlign="center center" fxFlexFill>
+    <mat-card fxFlex="25">
+      <mat-toolbar color="primary">New Income Page</mat-toolbar>
+      <form fxLayoutAlign= "stretch" fxLayout="column">
+        <mat-form-field>
+          <input matInput placeholder="Enter New Family">
+        </mat-form-field>
+      
+       <button mat-raised-button (click)="goToPage('home')">Enter</button>
+      </form>
+    </mat-card>
+  </div>
