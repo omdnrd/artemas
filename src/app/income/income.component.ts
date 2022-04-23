@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-income',
@@ -7,7 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IncomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
+  goToPage(PageName:string):void{
+
+
+    this.router.navigate([`${PageName}`]);
+    // else
+    // outterrormessage
+  }
 
   ngOnInit(): void {
   }

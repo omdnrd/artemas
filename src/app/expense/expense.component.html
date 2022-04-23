@@ -1,1 +1,13 @@
 <p>expense works!</p>
+<div fxLayoutAlign="center center" fxFlexFill>
+    <mat-card fxFlex="25">
+      <mat-toolbar color="primary">Expense Page</mat-toolbar>
+      <form fxLayoutAlign= "stretch" fxLayout="column">
+        <mat-form-field>
+          <input matInput placeholder="Enter New Expense">
+        </mat-form-field>
+      
+       <button mat-raised-button (click)="goToPage('home')">Enter</button>
+      </form>
+    </mat-card>
+  </div>

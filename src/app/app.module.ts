@@ -17,6 +17,7 @@ import { HomeComponent } from './home/home.component';
 import { IncomeComponent } from './income/income.component';
 import { ExpenseComponent } from './expense/expense.component';
 import { FamilyComponent } from './family/family.component';
+import { ExportComponent } from './export/export.component';
 
 
 
@@ -27,7 +28,8 @@ import { FamilyComponent } from './family/family.component';
     HomeComponent,
     IncomeComponent,
     ExpenseComponent,
-    FamilyComponent
+    FamilyComponent,
+    ExportComponent
   ],
   imports: [
     AppRoutingModule,
