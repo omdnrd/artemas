@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 
 @Component({
@@ -8,8 +9,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./income.component.scss']
 })
 export class IncomeComponent implements OnInit {
+  date: any = "";
+  family: string = "";
+  amount: number = 0;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, ) {
+
+   }
+
+  
+
+  ngOnInit(): void {
+  }
+
+
   goToPage(PageName:string):void{
 
 
@@ -18,7 +31,9 @@ export class IncomeComponent implements OnInit {
     // outterrormessage
   }
 
-  ngOnInit(): void {
+  displayInfo():void{
+    console.log(this.date)
+    console.log(this.family)
+    console.log(this.amount)
   }
-
 }

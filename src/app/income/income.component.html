@@ -3,11 +3,47 @@
     <mat-card fxFlex="25">
       <mat-toolbar color="primary">Income Page</mat-toolbar>
       <form fxLayoutAlign= "stretch" fxLayout="column">
-        <mat-form-field>
-          <input matInput placeholder="Enter New Income">
+        
+        <br/>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Family</mat-label>
+          <mat-select>
+            <mat-option value="one">Family 1</mat-option>
+            <mat-option value="two">Family 2</mat-option>
+          <input [(ngModel)]="family" name="family" value="family" matInput placeholder="Davis">
+          </mat-select>        
         </mat-form-field>
-      
-       <button mat-raised-button (click)="goToPage('home')">Enter</button>
+
+        <br/>
+
+         <mat-form-field appearance="fill" >
+          <mat-label>Amount</mat-label> 
+        <input [(ngModel)]="amount" name="amount" value="amount" matInput placeholder="00.00" >
+        </mat-form-field>
+        
+        
+        <br/>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Choose a date</mat-label>
+          <input matInput [matDatepicker]="picker">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]= "picker"> </mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <input [(ngModel)]="date" name="date" value="date" matInput placeholder="04/20/2022">
+        </mat-form-field>
+
+        <br/>
+        <button mat-raised-button (click)="displayInfo()">Enter</button>
+        <button mat-raised-button (click)="goToPage('home')">View Income</button>
+        <button mat-raised-button (click)="goToPage('home')">Back</button>
+        <br/>
+        <mat-list>
+          <mat-list-item>{{amount}} </mat-list-item>
+          <mat-list-item> {{family}} </mat-list-item>
+          <mat-list-item> {{date}} </mat-list-item>
+         </mat-list>
       </form>
     </mat-card>
   </div>
