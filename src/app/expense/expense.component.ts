@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { FamilyComponent } from '../family/family.component';
 
 
 @Component({
@@ -8,8 +10,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./expense.component.scss']
 })
 export class ExpenseComponent implements OnInit {
+  date: string;
+  expense: string = "Expense";
+  amount: number = 84.69;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) { 
+    this.date = new Date().toDateString()
+  }
+
+    ngOnInit(): void {
+
+  }
   goToPage(PageName:string):void{
 
 
@@ -18,7 +29,10 @@ export class ExpenseComponent implements OnInit {
     // outterrormessage
   }
 
-  ngOnInit(): void {
-  }
+  displayInfo():void{
+    console.log(this.date + " " + this.expense + " " + this.amount)
+    console.log(this.expense)
+    console.log(this.amount)
 
+  }
 }

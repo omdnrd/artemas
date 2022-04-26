@@ -3,9 +3,47 @@
     <mat-card fxFlex="25">
       <mat-toolbar color="primary">Expense Page</mat-toolbar>
       <form fxLayoutAlign= "stretch" fxLayout="column">
-        <mat-form-field>
-          <input matInput placeholder="Enter New Expense">
+
+        <br/>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Expense</mat-label>
+          <mat-select>
+            <mat-option value="def">Select expense</mat-option>
+            <mat-option value="one">Classroom supplies</mat-option>
+            <mat-option value="two">Food</mat-option>
+            <mat-option value="four">Utilities</mat-option>
+            <mat-option value="five">Outdoor Equipment</mat-option>
+            <mat-option value="six">Office Supplies</mat-option>
+            <mat-option value="seven">Building</mat-option>
+              <input [(ngModel)]="expense" name="expense" value="expense" matInput placeholder="Expense">
+          </mat-select>        
         </mat-form-field>
+
+        <br/>
+
+        <mat-form-field appearance="fill" >
+          <mat-label>Amount</mat-label> 
+            <input [(ngModel)]="amount" name="amount" value="amount" matInput placeholder="00.00" >
+        </mat-form-field>
+        
+        
+        <br/>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Choose a date</mat-label>
+          <input [(ngModel)]="date" name="date" value="dare" matInput placeholder="mm/dd/yyyy" >
+        </mat-form-field>
+
+        <br/>
+        <button mat-raised-button (click)="displayInfo()">Enter</button>
+        <button mat-raised-button (click)="goToPage('home')">Back</button>
+        <br/>
+        <mat-list>
+          <mat-list-item> {{expense}} </mat-list-item>
+          <mat-list-item>{{amount}} </mat-list-item>
+          <mat-list-item> {{date}} </mat-list-item>
+         </mat-list>
       
        <button mat-raised-button (click)="goToPage('home')">Enter</button>
       </form>
