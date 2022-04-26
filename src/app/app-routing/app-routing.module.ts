@@ -7,6 +7,7 @@ import { IncomeComponent } from '../income/income.component';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from '../login/login.component';
+import { ExportComponent } from '../export/export.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   },
   {
     path: 'family' , component: FamilyComponent
+  },
+  {
+    path: 'export' , component: ExportComponent
+
   }
 ];
 
@@ -35,5 +40,6 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forRoot(routes)],
   exports: [RouterModule]
+
 })
 export class AppRoutingModule { }

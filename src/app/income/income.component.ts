@@ -11,7 +11,7 @@ import { FamilyComponent } from '../family/family.component';
 })
 export class IncomeComponent implements OnInit {
   date: string;
-  family: string = "Franklin";
+  family: string = "Family";
   amount: number = 0;
 
   constructor(private router: Router, ) {
