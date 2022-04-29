@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
+
+import { FormGroup, FormControl } from '@angular/forms';
+import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
-
-
 
 @Component({
   selector: 'app-login',
@@ -10,15 +11,36 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router) { }
-  goToPage(PageName:string):void{
+   userName!: string;
+   password!: string;
+   formData!: FormGroup;
+
+  constructor(private authService : AuthService, private router: Router) { }
+  //goToPage(PageName:string):void{
 
 
-    this.router.navigate([`${PageName}`]);
+    //this.router.navigate([`${PageName}`]);
     // else
     // outterrormessage
-  }
-  ngOnInit(): void {
+  ngOnInit() {
+    this.formData = new FormGroup({
+      userName: new FormControl("admin"),
+      password: new FormControl("admin"),
+    });
   }
 
+  onClickSubmit(data:any) {
+    this.userName = data.username;
+    this.password = data.password;
+
+    console.log("Login Page: " + this.userName);
+    console.log("Login page: " + this.password);
+
+    this.authService.login(this.userName, this.password)
+      .subscribe( data => {
+        console.log("Is Login Succcess: " + data);
+
+        if(data) this.router.navigate(['/home']);
+      });
+  }
 }

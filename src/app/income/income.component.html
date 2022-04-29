@@ -9,9 +9,12 @@
         <mat-form-field appearance="fill">
           <mat-label>Family</mat-label>
           <mat-select>
-            <mat-option value="one">Jones</mat-option>
-            <mat-option value="two">Franklin</mat-option>
-            <mat-option value="three">Saunders</mat-option>
+            <mat-option value="one">Franklin</mat-option>
+            <mat-option value="two">Saunders</mat-option>
+            <mat-option value="three">Jones</mat-option>
+            <mat-option value="three">Glaser</mat-option>
+            <mat-option value="three">Bilzerian</mat-option>
+
               <input [(ngModel)]="family" name="family" value="family" matInput placeholder="Davis">
           </mat-select>        
         </mat-form-field>
@@ -35,11 +38,26 @@
         <button mat-raised-button (click)="displayInfo()">Enter</button>
         <button mat-raised-button (click)="goToPage('home')">Back</button>
         <br/>
-        <mat-list>
-          <mat-list-item>{{amount}} </mat-list-item>
-          <mat-list-item> {{family}} </mat-list-item>
-          <mat-list-item> {{date}} </mat-list-item>
-         </mat-list>
+
       </form>
     </mat-card>
+    <h3 class="p-3 text-center">Angular - Display a list of Income with ngFor</h3>
+<div class="container box" style="marign-top:10px;">
+    <table class="table table-striped">
+          <thead>
+            <tr>
+                <th>Family</th>
+                <th>Amount</th>
+                <th>Date</th>
+            </tr>
+          </thead>
+        <tbody>
+            <tr *ngFor="let income of Incomes">
+              <th scope="row"></th>
+                <td>{{income.firstName}} {{income.lastName}}</td>
+                <td>{{income.amount}}</td>
+                <td>{{income.date}}</td>
+            </tr>
+        </tbody>
+    </table>
   </div>

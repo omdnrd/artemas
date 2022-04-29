@@ -11,12 +11,27 @@ import { FamilyComponent } from '../family/family.component';
 })
 export class IncomeComponent implements OnInit {
   date: string;
-  family: string = "Family";
-  amount: number = 0;
+  family: any;
+  amount: any;
+  Incomes = [
+    { firstName: 'Frank', lastName: 'Franklin', amount: '$ 400.00', date: 'Thu Apr 28 2022' },
+    { firstName: 'Vic', lastName: 'Saunders', amount: '$ 200.00', date: 'Thu Apr 28 2022' },
+    { firstName: 'Gina', lastName: 'Jones', amount: '$ 100.00', date: 'Thu Apr 28 2022' },
+    { firstName: 'Jessi', lastName: 'Glaser', amount: '$ 500.00', date: 'Thu Apr 28 2022' },
+    { firstName: 'Jay', lastName: 'Bilzerian', amount: '$ 400.00', date: 'Thu Apr 28 2022' }
+];
+
+  
 
   constructor(private router: Router, ) {
 
-    this.date = new Date().toDateString()
+    this.date = new Date().toDateString();
+    this.family = {
+
+    }
+    this.amount = {
+
+    }
     
 
    }
@@ -37,7 +52,5 @@ export class IncomeComponent implements OnInit {
 
   displayInfo():void{
     console.log(this.date + " " + this.family + " " + this.amount)
-    console.log(this.family)
-    console.log(this.amount)
   }
 }
