@@ -23,15 +23,15 @@ export class LoginComponent implements OnInit {
     // else
     // outterrormessage
   ngOnInit() {
-    this.formData = new FormGroup({
-      userName: new FormControl("admin"),
-      password: new FormControl("admin"),
-    });
+    // this.formData = new FormGroup({
+    //   userName: new FormControl(""),
+    //   password: new FormControl(""),
+    // });
   }
 
-  onClickSubmit(data:any) {
-    this.userName = data.username;
-    this.password = data.password;
+  onClickSubmit() {
+
+
 
     console.log("Login Page: " + this.userName);
     console.log("Login page: " + this.password);

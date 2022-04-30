@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+
 import { AuthService } from './auth.service';
 
 @Component({
@@ -18,12 +19,15 @@ export class AppComponent {
     let storeData = localStorage.getItem("isUserLoggedIn");
     console.log("StoreData: " + storeData);
 
+
     if( storeData != null && storeData == "true")
       this.isUserLoggedIn = true;
 
     else
 
       this.isUserLoggedIn = false;
+
   }
+
 
 }

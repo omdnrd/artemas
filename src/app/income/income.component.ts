@@ -13,25 +13,15 @@ export class IncomeComponent implements OnInit {
   date: string;
   family: any;
   amount: any;
-  Incomes = [
-    { firstName: 'Frank', lastName: 'Franklin', amount: '$ 400.00', date: 'Thu Apr 28 2022' },
-    { firstName: 'Vic', lastName: 'Saunders', amount: '$ 200.00', date: 'Thu Apr 28 2022' },
-    { firstName: 'Gina', lastName: 'Jones', amount: '$ 100.00', date: 'Thu Apr 28 2022' },
-    { firstName: 'Jessi', lastName: 'Glaser', amount: '$ 500.00', date: 'Thu Apr 28 2022' },
-    { firstName: 'Jay', lastName: 'Bilzerian', amount: '$ 400.00', date: 'Thu Apr 28 2022' }
-];
+  Incomes:any = [];
 
   
 
   constructor(private router: Router, ) {
 
     this.date = new Date().toDateString();
-    this.family = {
-
-    }
-    this.amount = {
-
-    }
+    this.family = ""
+    this.amount = "0.00"
     
 
    }
@@ -50,7 +40,15 @@ export class IncomeComponent implements OnInit {
     // outterrormessage
   }
 
-  displayInfo():void{
+  addEntry():void{
     console.log(this.date + " " + this.family + " " + this.amount)
+    let entry = {
+      date: this.date,
+      family: this.family,
+      amount: this.amount
+    }
+
+    this.Incomes.push(entry)
+    console.log(this.Incomes)
   }
 }
