@@ -11,6 +11,13 @@ import { Router } from '@angular/router';
 export class LogoutComponent implements OnInit {
 
   constructor(private authService: AuthService, private router: Router) { }
+  goToPage(PageName:string):void{
+
+
+    this.router.navigate([`${PageName}`]);
+    // else
+    // outterrormessage
+  }
 
   ngOnInit(): void {
     this.authService.logout();
