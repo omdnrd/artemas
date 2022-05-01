@@ -19,7 +19,7 @@ export class ExpenseComponent implements OnInit {
   constructor(private router: Router, ) { 
     this.date = new Date().toDateString();
     this.expense = ""
-    this.amount = "0.00"
+    this.amount = "00.00"
     this.description = ""
   }
 

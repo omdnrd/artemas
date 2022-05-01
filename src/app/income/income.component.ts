@@ -21,7 +21,7 @@ export class IncomeComponent implements OnInit {
 
     this.date = new Date().toDateString();
     this.family = ""
-    this.amount = "0.00"
+    this.amount = "00.00"
     
 
    }
