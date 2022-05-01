@@ -11,11 +11,16 @@ import { FamilyComponent } from '../family/family.component';
 })
 export class ExpenseComponent implements OnInit {
   date: string;
-  expense: string = "Expense";
-  amount: number = 84.69;
+  expense: string;
+  amount: any;
+  description: any;
+  Expenses: any = [];
 
-  constructor(private router: Router) { 
-    this.date = new Date().toDateString()
+  constructor(private router: Router, ) { 
+    this.date = new Date().toDateString();
+    this.expense = ""
+    this.amount = "0.00"
+    this.description = ""
   }
 
     ngOnInit(): void {
@@ -29,10 +34,18 @@ export class ExpenseComponent implements OnInit {
     // outterrormessage
   }
 
-  displayInfo():void{
-    console.log(this.date + " " + this.expense + " " + this.amount)
-    console.log(this.expense)
-    console.log(this.amount)
+  addEntry():void{
+    console.log(this.date + " " + this.expense + " " + this.amount + " " + this.description)
+    let entry = {
+      date: this.date,
+      expense: this.expense,
+      amount: this.amount,
+      description: this.description
+    }
 
-  }
+  
+
+    this.Expenses.push(entry)
+    console.log(this.Expenses)
+ }
 }

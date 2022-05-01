@@ -8,8 +8,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./family.component.scss']
 })
 export class FamilyComponent implements OnInit {
+  firstName!: string;
+  lastName!: string;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) { 
+    
+  }
   goToPage(PageName:string):void{
 
 

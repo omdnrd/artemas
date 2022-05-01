@@ -8,15 +8,15 @@
 
         <mat-form-field appearance="fill">
           <mat-label>Expense</mat-label>
-          <mat-select>
-            <mat-option value="def">Select expense</mat-option>
-            <mat-option value="one">Classroom supplies</mat-option>
-            <mat-option value="two">Food</mat-option>
-            <mat-option value="four">Utilities</mat-option>
-            <mat-option value="five">Outdoor Equipment</mat-option>
-            <mat-option value="six">Office Supplies</mat-option>
-            <mat-option value="seven">Building</mat-option>
-              <input [(ngModel)]="expense" name="expense" value="expense" matInput placeholder="Expense">
+          <mat-select [(ngModel)]="expense" name="expense">
+            <mat-option value="Select expense">Select expense</mat-option>
+            <mat-option value="Classroom supplies">Classroom supplies</mat-option>
+            <mat-option value="Food">Food</mat-option>
+            <mat-option value="Utilities">Utilities</mat-option>
+            <mat-option value="Outdoor Equipment">Outdoor Equipment</mat-option>
+            <mat-option value="Office Supplies">Office Supplies</mat-option>
+            <mat-option value="Building">Building</mat-option>
+            <mat-option value="Other">Other</mat-option>
           </mat-select>        
         </mat-form-field>
 
@@ -25,82 +25,50 @@
         <mat-form-field appearance="fill" >
           <mat-label>Amount</mat-label> 
             <input [(ngModel)]="amount" name="amount" value="amount" matInput placeholder="00.00" >
-        </mat-form-field>
+        </mat-form-field> 
         
         
         <br/>
 
         <mat-form-field appearance="fill">
           <mat-label>Choose a date</mat-label>
-          <input [(ngModel)]="date" name="date" value="dare" matInput placeholder="mm/dd/yyyy" >
+          <input [(ngModel)]="date" name="date" value="date" matInput placeholder="mm/dd/yyyy" >
         </mat-form-field>
 
         <br/>
-        <button mat-raised-button (click)="displayInfo()">Enter</button>
+
+        <mat-form-field appearance="fill" >
+         <mat-label>Description</mat-label> 
+           <input [(ngModel)]="description" name="description" value="description" matInput placeholder="Ex. Groceries from Schnucks" >
+       </mat-form-field> 
+
+        <br/>
+        <button mat-raised-button (click)="addEntry()">Enter</button>
         <button mat-raised-button (click)="goToPage('home')">Back</button>
         <br/>
-        <mat-list>
-          <mat-list-item> {{expense}} </mat-list-item>
-          <mat-list-item>{{amount}} </mat-list-item>
-          <mat-list-item> {{date}} </mat-list-item>
-         </mat-list>
+
       
-       <button mat-raised-button (click)="goToPage('home')">Enter</button>
       </form>
     </mat-card>
-  </div>
-  <div class="container"> 
-    <div class="row"> 
-       <div class="col-lg-12 text-center" style="padding-top: 20px;"> 
-          <div class="container" style="padding-left: 0px; padding-right: 0px;"> 
-             <div class="row"> 
-             <div class="col-sm" style="text-align: right;"> 
-                <button type="button" class="btn btn-primary">Edit</button> 
-             </div> 
-             </div> 
-          </div> 
-          <div class="container box" style="margin-top: 10px;"> 
-          <div class="row"> 
-          <div class="col-2" style="text-align: left;">  
-             <strong><em>Item:</em></strong> 
-          </div> 
-          <div class="col" style="text-align: right;"> 
-             Pizza 
-          </div>
-          </div> 
-          <div class="row"> 
-          <div class="col-2" style="text-align: left;">
-             <strong><em>Amount:</em></strong> 
-          </div> 
-          <div class="col" style="text-align: right;"> 
-             20 
-          </div> 
-          </div> 
-          <div class="row"> 
-          <div class="col-2" style="text-align: left;"> 
-             <strong><em>Category:</em></strong> 
-          </div> 
-          <div class="col" style="text-align: right;"> 
-             Food 
-          </div> 
-          </div> 
-          <div class="row"> 
-          <div class="col-2" style="text-align: left;"> 
-             <strong><em>Location:</em></strong>
-          </div> 
-          <div class="col" style="text-align: right;"> 
-             Dominoes 
-          </div> 
-          </div> 
-          <div class="row"> 
-          <div class="col-2" style="text-align: left;"> 
-             <strong><em>Spend On:</em></strong> 
-          </div> 
-          <div class="col" style="text-align: right;"> 
-             April 26, 2022 
-          </div> 
-          </div> 
-       </div> 
-    </div> 
- </div> 
- </div>
+    <h3 class="p-3 text-center">Angular - Display a list of Expenses with ngFor</h3>
+    <div class="container box" style="marign-top:10px;">
+        <table class="table table-striped">
+              <thead>
+                <tr>
+                    <th>Expense</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                    <th>Description</th>
+                </tr>
+              </thead>
+            <tbody>
+                <tr *ngFor="let entry of Expenses ">
+                  <th scope="row"></th>
+                    <td>{{entry.expense}}</td>
+                    <td>{{entry.amount}}</td>
+                    <td>{{entry.date}}</td>
+                    <td>{{entry.description}}</td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
