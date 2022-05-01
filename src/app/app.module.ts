@@ -22,7 +22,6 @@ import { IncomeComponent } from './income/income.component';
 import { ExpenseComponent } from './expense/expense.component';
 import { FamilyComponent } from './family/family.component';
 import { ExportComponent } from './export/export.component';
-import { NewIncomeComponent } from './new-income/new-income.component';
 import { ViewIncomeComponent } from './view-income/view-income.component';
 import { LogoutComponent } from './logout/logout.component';
 
@@ -38,7 +37,6 @@ import { LogoutComponent } from './logout/logout.component';
     ExpenseComponent,
     FamilyComponent,
     ExportComponent,
-    NewIncomeComponent,
     ViewIncomeComponent,
     LogoutComponent
   ],
