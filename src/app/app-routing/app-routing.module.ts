@@ -12,6 +12,7 @@ import { LogoutComponent } from '../logout/logout.component';
 
 import { ExpenseGuard } from '../expense.guard';
 import { ViewIncomeComponent } from '../view-income/view-income.component';
+import { ViewFamilyComponent } from '../view-family/view-family.component';
 
 const routes: Routes = [
   { path: '' , component: LoginComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'view-income' , component: ViewIncomeComponent},
   { path: 'expense' , component: ExpenseComponent },
   { path: 'family' , component: FamilyComponent },
+  { path: 'view-family' , component: ViewFamilyComponent},
   { path: 'export' , component: ExportComponent },
   { path: 'logout' , component: LogoutComponent}
 ];
