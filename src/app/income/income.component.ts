@@ -13,7 +13,7 @@ export class IncomeComponent implements OnInit {
   date: string;
   family: any;
   amount: any;
-  Incomes:any = [];
+  Incomes: any = [];
 
   
 

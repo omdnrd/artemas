@@ -10,10 +10,20 @@ import { Router } from '@angular/router';
 export class FamilyComponent implements OnInit {
   firstName!: string;
   lastName!: string;
+  family!: string;
+  Families: any = [];
 
-  constructor(private router: Router) { 
+  constructor(private router: Router) {
     
+    this.firstName =""
+    this.lastName = ""
+    this.family = ""
   }
+
+  ngOnInit(): void {
+  }
+
+
   goToPage(PageName:string):void{
 
 
@@ -21,7 +31,14 @@ export class FamilyComponent implements OnInit {
     // else
     // outterrormessage
   }
-  ngOnInit(): void {
+  addEntry():void{
+    console.log()
+    let entry = {
+      family: this.firstName + "" + this.lastName
+    }
+
+    this.Families.push(entry)
+    console.log(this.Families)
   }
 
 }

@@ -3,15 +3,38 @@
     <mat-card fxFlex="25">
       <mat-toolbar color="primary">Family Page</mat-toolbar>
       <form fxLayoutAlign= "stretch" fxLayout="column">
+
+        <br/>
+
         <mat-form-field>
-          <input matInput placeholder="First Name">
+          <mat-label>First Name</mat-label>
+          <input [(ngModel)]="firstName" name="firstName" value="firstName" matInput placeholder="First Name">
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput placeholder="Last Name">
+          <mat-label>Last Name</mat-label>
+          <input [(ngModel)]="lastName" name="lastName" value="lastName" matInput placeholder="Last Name">
         </mat-form-field>
       
-       <button mat-raised-button (click)="goToPage('home')">Enter</button>
+       <button mat-raised-button (click)="addEntry()">Add Family</button>
+       <br/>
+       <button mat-raised-button (click)="goToPage('home')">View Families</button>
       </form>
     </mat-card>
-  </div>
+
+    <h3 class="p-3 text-center">Angular - Display a list of Families with ngFor</h3>
+<div class="container box" style="marign-top:10px;">
+    <table class="table table-striped">
+          <thead>
+            <tr>
+                <th>Family</th>
+            <tr>
+          </thead>
+        <tbody>
+          <tr *ngFor="let entry of Families">
+            <th scope="row"></th>
+              <td>{{entry.family}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
