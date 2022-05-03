@@ -11,12 +11,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { LogoutComponent } from '../logout/logout.component';
 
 import { ExpenseGuard } from '../expense.guard';
+import { ViewIncomeComponent } from '../view-income/view-income.component';
 
 const routes: Routes = [
   { path: '' , component: LoginComponent },
   { path: 'login' , component: LoginComponent },
   { path: 'home' , component: HomeComponent },
   { path: 'income' , component: IncomeComponent },
+  { path: 'view-income' , component: ViewIncomeComponent},
   { path: 'expense' , component: ExpenseComponent },
   { path: 'family' , component: FamilyComponent },
   { path: 'export' , component: ExportComponent },
