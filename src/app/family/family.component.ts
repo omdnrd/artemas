@@ -34,7 +34,7 @@ export class FamilyComponent implements OnInit {
   addEntry():void{
     console.log()
     let entry = {
-      family: this.firstName + "" + this.lastName
+      family: this.firstName + " " + this.lastName
     }
 
     this.Families.push(entry)
