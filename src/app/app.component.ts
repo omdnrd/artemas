@@ -10,7 +10,7 @@ import { AuthService } from './auth.service';
 })
 export class AppComponent {
 
-  title = 'artemas';
+  title = "SHEILA'S CHILDCARE AND PRESCHOOL";
   isUserLoggedIn: boolean = false;
 
   constructor(private authService: AuthService) {}

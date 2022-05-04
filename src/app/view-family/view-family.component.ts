@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./view-family.component.scss']
 })
 export class ViewFamilyComponent implements OnInit {
+  viewFamily!: any;
 
   constructor(private router: Router) { }
 
