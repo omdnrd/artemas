@@ -16,7 +16,7 @@
           <input [(ngModel)]="lastName" name="lastName" value="lastName" matInput placeholder="Last Name">
         </mat-form-field>
       
-       <button mat-raised-button (click)="addEntry()">Add Family</button>
+       <button mat-raised-button (click)="[addEntry(), createNewFamily()]">Add Family</button>
 
        <br/>
 

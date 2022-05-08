@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FamilyService } from '../family.service';
 
 
 @Component({
@@ -13,14 +14,26 @@ export class FamilyComponent implements OnInit {
   family!: string;
   Families: any = [];
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private familyService: FamilyService) {
     
-    this.firstName =""
+    this.firstName = ""
     this.lastName = ""
     this.family = ""
   }
 
   ngOnInit(): void {
+  }
+
+  createNewFamily(){
+    this.familyService.createFamily('Testing').subscribe((response: any) => {
+      console.log(response);
+    });
+  }
+
+  getFamilies(){
+    //this.familyService.getFamily('Testing').subscribe((response: any) => {
+      //console.log(response);
+    //});
   }
 
 
