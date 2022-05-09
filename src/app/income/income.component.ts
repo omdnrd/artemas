@@ -10,7 +10,7 @@ import { FamilyComponent } from '../family/family.component';
   styleUrls: ['./income.component.scss']
 })
 export class IncomeComponent implements OnInit {
-  date: string;
+  term: string;
   family: any;
   amount: any;
   Incomes: any = [];
@@ -19,9 +19,9 @@ export class IncomeComponent implements OnInit {
 
   constructor(private router: Router, ) {
 
-    this.date = new Date().toDateString();
+    this.term = ""
     this.family = ""
-    this.amount = "00.00"
+    this.amount = ""
     
 
    }
@@ -41,9 +41,9 @@ export class IncomeComponent implements OnInit {
   }
 
   addEntry():void{
-    console.log(this.date + " " + this.family + " " + this.amount)
+    console.log(this.term + " " + this.family + " " + this.amount)
     let entry = {
-      date: this.date,
+      date: this.term,
       family: this.family,
       amount: this.amount
     }

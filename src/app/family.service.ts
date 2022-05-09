@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+//import { title } from 'process';
 import { WebRequestService } from './web-request.service';
 
 @Injectable({
@@ -8,13 +9,22 @@ export class FamilyService {
 
   constructor(private webReqService: WebRequestService ) { }
 
-  createFamily(title: string){
-    console.log(title)
+  createFamily(family: string){
+    console.log(family)
     // Sends a web request to create a family
-    return this.webReqService.post('api/family', {title});
+    return this.webReqService.post('api/family', {family});
   }
-  //getFamily(id: any){
-    // Sends a web request to get a family
-    //return this.webReqService.get('/api/family', id);
-  //}
+  getFamily(){
+    //Sends a web request to get all families
+    return this.webReqService.get('api/family');
+  }
+  updateFamily(title: string){
+    console.log(title)
+    //Sends a web request to update a family
+    return this.webReqService.patch('api/family', {title});
+  }
+  deleteFamily(){
+    //Sends a web request to deleta a family
+    return this.webReqService.delete('api/family');
+  }
 }

@@ -20,7 +20,7 @@
 
        <br/>
 
-       <button mat-raised-button (click)="goToPage('view-family')">View Families</button>
+       <button mat-raised-button (click)="[addEntry(), getFamilies()]">View Families</button>
 
        <br/>
        
@@ -34,6 +34,7 @@
     <table class="table table-striped">
           <thead>
             <tr>
+              <td style="text-align:center"></td>
                 <th>Family</th>
                 <th>Status</th>
             <tr>

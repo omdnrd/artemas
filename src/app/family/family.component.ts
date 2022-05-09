@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { response } from 'express';
 import { FamilyService } from '../family.service';
 
 
@@ -12,30 +13,42 @@ export class FamilyComponent implements OnInit {
   firstName!: string;
   lastName!: string;
   family!: string;
+  status!: boolean;
   Families: any = [];
 
   constructor(private router: Router, private familyService: FamilyService) {
     
     this.firstName = ""
     this.lastName = ""
-    this.family = ""
+    this.family = this.firstName + this.lastName
   }
 
   ngOnInit(): void {
   }
 
   createNewFamily(){
-    this.familyService.createFamily('Testing').subscribe((response: any) => {
+    this.familyService.createFamily(this.family).subscribe((response: any) => {
       console.log(response);
     });
   }
 
   getFamilies(){
-    //this.familyService.getFamily('Testing').subscribe((response: any) => {
-      //console.log(response);
-    //});
+    this.familyService.getFamily().subscribe((response2: any) => {
+      console.log(response2);
+    });
   }
 
+  updateFamilies(){
+    this.familyService.updateFamily('Testing').subscribe((response3: any) => {
+      console.log(response3);
+    });
+  }
+
+  deleteFamilies(){
+    this.familyService.deleteFamily().subscribe((response4: any) => {
+      console.log(response4);
+    })
+  }
 
   goToPage(PageName:string):void{
 

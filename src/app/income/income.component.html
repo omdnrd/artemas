@@ -21,14 +21,19 @@
 
         <mat-form-field appearance="fill" >
           <mat-label>Amount</mat-label> 
-            <input [(ngModel)]="amount" name="amount" value="amount" matInput placeholder="00.00" >
+            <input [(ngModel)]="amount" name="amount" value="amount" matInput placeholder="$00.00" >
         </mat-form-field>
         
         <br/>
 
         <mat-form-field appearance="fill">
-          <mat-label>Date</mat-label>
-          <input [(ngModel)]="date" name="date" value="date" matInput placeholder="mm/dd/yyyy" >
+          <mat-form-field appearance="fill" >
+            <mat-label>Term</mat-label> 
+            <mat-select [(ngModel)]="term" name="term">
+              <mat-option value="Term1">15th</mat-option>
+              <mat-option value="Term2">30th/31st</mat-option>
+            </mat-select>              
+          </mat-form-field>
         </mat-form-field>
 
         <br/>
@@ -45,6 +50,7 @@
     <table class="table table-striped">
           <thead>
             <tr>
+              <td style="text-align: center"></td>
                 <th>Family</th>
                 <th>Amount</th>
                 <th>Date</th>
