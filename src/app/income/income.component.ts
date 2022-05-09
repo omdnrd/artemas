@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import { FamilyComponent } from '../family/family.component';
+import { FamilyService } from '../family.service';
 
 
 @Component({
@@ -17,7 +16,7 @@ export class IncomeComponent implements OnInit {
 
   
 
-  constructor(private router: Router, ) {
+  constructor(private router: Router, private familyService: FamilyService) {
 
     this.term = ""
     this.family = ""
@@ -30,7 +29,21 @@ export class IncomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
+  getFamilies(){
+    let familyInfo:any = []
+    this.familyService.getFamily().subscribe((res: any) => { 
+     let arr = res
+     arr.forEach((element: any) => {
+      // console.log(element)
+      
+       familyInfo.push(element)
+     });
+        
+    });
 
+    console.log(familyInfo);
+  }
 
   goToPage(PageName:string):void{
 

@@ -49,3 +49,8 @@ export class ExpenseComponent implements OnInit {
     console.log(this.Expenses)
  }
 }
+//@Component({  
+  //selector: 'datepicker-custom-icon-example',  
+  //templateUrl: 'datepicker-custom-icon-example.html',  
+//})  
+//export class DatepickerCustomIconExample {} 

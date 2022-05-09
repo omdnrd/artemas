@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { response } from 'express';
 import { FamilyService } from '../family.service';
 
 
@@ -13,29 +12,45 @@ export class FamilyComponent implements OnInit {
   firstName!: string;
   lastName!: string;
   family!: string;
-  status!: boolean;
+  status!: string;
   Families: any = [];
+  
 
   constructor(private router: Router, private familyService: FamilyService) {
     
     this.firstName = ""
     this.lastName = ""
-    this.family = this.firstName + this.lastName
+    this.family =  ""
+    this.status = "active"
   }
 
   ngOnInit(): void {
   }
 
   createNewFamily(){
-    this.familyService.createFamily(this.family).subscribe((response: any) => {
+    let request = {
+      name:  this.firstName + " " + this.lastName,
+      status: this.status,
+    }
+    console.log(request.name);
+    this.familyService.createFamily(request).subscribe((response: any) => {
       console.log(response);
     });
   }
 
   getFamilies(){
-    this.familyService.getFamily().subscribe((response2: any) => {
-      console.log(response2);
+    let familyInfo:any = []
+    this.familyService.getFamily().subscribe((res: any) => { 
+     let arr = res
+     arr.forEach((element: any) => {
+      // console.log(element)
+      
+       familyInfo.push(element)
+     });
+        
     });
+
+    console.log(familyInfo);
   }
 
   updateFamilies(){
@@ -60,9 +75,9 @@ export class FamilyComponent implements OnInit {
   addEntry():void{
     console.log()
     let entry = {
-      family: this.firstName + " " + this.lastName
+      family: this.firstName + " " + this.lastName,
+      status: this.status
     }
-
     this.Families.push(entry)
     console.log(this.Families)
   }

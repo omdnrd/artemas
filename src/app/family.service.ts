@@ -7,12 +7,14 @@ import { WebRequestService } from './web-request.service';
 })
 export class FamilyService {
 
+
   constructor(private webReqService: WebRequestService ) { }
 
-  createFamily(family: string){
-    console.log(family)
+  createFamily(family: object){
+    console.log(JSON.stringify(family))
+   // let req = JSON.stringify(family)
     // Sends a web request to create a family
-    return this.webReqService.post('api/family', {family});
+    return this.webReqService.post('api/family', family);
   }
   getFamily(){
     //Sends a web request to get all families
