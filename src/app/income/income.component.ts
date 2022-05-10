@@ -42,7 +42,7 @@ export class IncomeComponent implements OnInit {
     }
     console.log(request.family);
     this.incomeService.createIncome(request).subscribe((response: any) => {
-      console.log(response);
+      this.getIncomes()
     });
   }
 
