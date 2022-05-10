@@ -48,12 +48,13 @@
             </tr>
           </thead>
         <tbody>
-            <tr *ngFor="let entry of Incomes">
-              <th scope="row"></th>
-                <td>{{entry.family}}</td>
-                <td>{{entry.amount}}</td>
-                <td>{{entry.date}}</td>
-            </tr>
+          <tr *ngFor="let entry of Incomes">
+            <th scope="row"></th>
+              <td>{{entry.family}}</td>
+              <td>{{entry.amount}}</td>
+              <td>{{entry.Date}}</td>
+              <button (click)="deleteEntry(entry)">Delete</button>
+          </tr>
         </tbody>
     </table>
   </div>
