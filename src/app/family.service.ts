@@ -25,8 +25,8 @@ export class FamilyService {
     //Sends a web request to update a family
     return this.webReqService.patch('api/family', {title});
   }
-  deleteFamily(){
+  deleteFamily(id:any){
     //Sends a web request to deleta a family
-    return this.webReqService.delete('api/family');
+    return this.webReqService.delete(`api/family/${id}`);
   }
 }

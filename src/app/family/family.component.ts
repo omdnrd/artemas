@@ -61,12 +61,6 @@ export class FamilyComponent implements OnInit {
     });
   }
 
-  deleteFamilies(){
-    this.familyService.deleteFamily().subscribe((response4: any) => {
-      console.log(response4);
-    })
-  }
-
   goToPage(PageName:string):void{
 
 
@@ -83,5 +77,9 @@ export class FamilyComponent implements OnInit {
     this.Families.push(entry)
     console.log(this.Families)
   }
-
+  deleteEntry(entry:any):void {
+    this.familyService.deleteFamily(entry._id).subscribe((res: any) => {
+      this.getFamilies() // Once the record gets deleted we refetch
+    })
+  }
 }
