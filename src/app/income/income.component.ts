@@ -38,7 +38,7 @@ export class IncomeComponent implements OnInit {
     let request = {
       family:  this.family,
       amount: this.amount,
-      date: this.date
+      Date: this.date
     }
     console.log(request.family);
     this.incomeService.createIncome(request).subscribe((response: any) => {
@@ -89,7 +89,7 @@ export class IncomeComponent implements OnInit {
   addEntry():void{
     console.log(this.date + " " + this.family + " " + this.amount)
     let entry = {
-      date: this.date,
+      Date: this.date,
       family: this.family,
       amount: this.amount
     }
