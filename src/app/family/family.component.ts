@@ -14,10 +14,10 @@ export class FamilyComponent implements OnInit {
   family!: string;
   status!: string;
   Families: any = [];
-  
+
 
   constructor(private router: Router, private familyService: FamilyService) {
-    
+
     this.firstName = ""
     this.lastName = ""
     this.family =  ""
@@ -25,6 +25,7 @@ export class FamilyComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getFamilies()
   }
 
   createNewFamily(){
@@ -40,17 +41,18 @@ export class FamilyComponent implements OnInit {
 
   getFamilies(){
     let familyInfo:any = []
-    this.familyService.getFamily().subscribe((res: any) => { 
-     let arr = res
-     arr.forEach((element: any) => {
+    this.familyService.getFamily().subscribe((res: any) => {
+      let arr = res
+      arr.forEach((element: any) => {
       // console.log(element)
-      
-       familyInfo.push(element)
-     });
-        
+
+        familyInfo.push(element)
+      });
+
     });
 
     console.log(familyInfo);
+    this.Families = familyInfo
   }
 
   updateFamilies(){
@@ -75,7 +77,7 @@ export class FamilyComponent implements OnInit {
   addEntry():void{
     console.log()
     let entry = {
-      family: this.firstName + " " + this.lastName,
+      familyName: this.firstName + " " + this.lastName,
       status: this.status
     }
     this.Families.push(entry)
