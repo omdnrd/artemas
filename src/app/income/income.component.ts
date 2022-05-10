@@ -9,7 +9,7 @@ import { FamilyService } from '../family.service';
   styleUrls: ['./income.component.scss']
 })
 export class IncomeComponent implements OnInit {
-  term: string;
+  date: any;
   family: any;
   amount: any;
   Incomes: any = [];
@@ -18,7 +18,7 @@ export class IncomeComponent implements OnInit {
 
   constructor(private router: Router, private familyService: FamilyService) {
 
-    this.term = ""
+    this.date = ""
     this.family = ""
     this.amount = ""
     
@@ -33,7 +33,7 @@ export class IncomeComponent implements OnInit {
     let request = {
       family:  this.family,
       amount: this.amount,
-      term: this.term
+      term: this.date
     }
     console.log(request.family);
     this.familyService.createFamily(request).subscribe((response: any) => {
@@ -65,9 +65,9 @@ export class IncomeComponent implements OnInit {
   }
 
   addEntry():void{
-    console.log(this.term + " " + this.family + " " + this.amount)
+    console.log(this.date + " " + this.family + " " + this.amount)
     let entry = {
-      date: this.term,
+      date: this.date,
       family: this.family,
       amount: this.amount
     }

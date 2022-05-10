@@ -27,11 +27,8 @@
         <br/>
 
         <mat-form-field appearance="fill">
-            <mat-label>Term</mat-label> 
-            <mat-select [(ngModel)]="term" name="term">
-              <mat-option value="Term1">15th</mat-option>
-              <mat-option value="Term2">30th/31st</mat-option>
-            </mat-select>              
+            <mat-label>Date</mat-label> 
+            <input [(ngModel)]="date" name="date" value="date" matInput placeholder="mm/dd/yyyy">             
         </mat-form-field>
 
         <br/>
