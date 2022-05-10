@@ -15,38 +15,19 @@
           <mat-label>Last Name</mat-label>
           <input [(ngModel)]="lastName" name="lastName" value="lastName" matInput placeholder="Last Name">
         </mat-form-field>
-      
+
        <button mat-raised-button (click)="[addEntry(), createNewFamily()]">Add Family</button>
 
        <br/>
 
-       <button mat-raised-button (click)="[addEntry(), getFamilies()]">View Families</button>
+       <button mat-raised-button (click)="getFamilies()">View Families</button>
 
        <br/>
-       
+
        <button mat-raised-button (click)="goToPage('home')">Back</button>
 
       </form>
     </mat-card>
-
-    <h3 class="p-3 text-center">Added Families</h3>
-<div class="container box" style="marign-top:10px;">
-    <table class="table table-striped">
-          <thead>
-            <tr>
-              <td style="text-align:center"></td>
-                <th>Family</th>
-                <th>Status</th>
-            <tr>
-          </thead>
-        <tbody>
-          <tr *ngFor="let entry of Families">
-            <th scope="row"></th>
-              <td>{{entry.family}}</td>
-              <td>{{entry.status}}</td>
-          </tr>
-        </tbody>
-      </table>
 
       <h3 class="p-3 text-center">All Families</h3>
 <div class="container box" style="marign-top:10px;">
@@ -61,7 +42,7 @@
         <tbody>
           <tr *ngFor="let entry of Families">
             <th scope="row"></th>
-              <td>{{entry.family}}</td>
+              <td>{{entry.familyName}}</td>
               <td>{{entry.status}}</td>
           </tr>
         </tbody>
