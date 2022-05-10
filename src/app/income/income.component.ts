@@ -97,4 +97,10 @@ export class IncomeComponent implements OnInit {
     this.Incomes.push(entry)
     console.log(this.Incomes)
   }
+
+  deleteEntry(entry:any):void {
+    this.incomeService.deleteIncome(entry._id).subscribe((res: any) => {
+      this.getIncomes() // Once the record gets deleted we refetch
+    })
+  }
 }
