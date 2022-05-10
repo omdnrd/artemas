@@ -9,7 +9,11 @@
         <mat-form-field appearance="fill">
           <mat-label>Family</mat-label>
           <mat-select [(ngModel)]="family" name="family">
-            <mat-option value="Select">Select Family</mat-option>
+            <mat-option value="James">Select Family</mat-option>
+            <mat-option value="Franklin">Franklin</mat-option>
+            <mat-option value="Davis">Davis</mat-option>
+            <mat-option value="Jones">Jones</mat-option>
+            <mat-option value="Stark">Stark</mat-option>
           </mat-select>        
         </mat-form-field>
 
@@ -31,7 +35,7 @@
         </mat-form-field>
 
         <br/>
-        <button mat-raised-button (click)="addEntry()">Enter</button>
+        <button mat-raised-button (click)="[addEntry(), createNewIncome()]">Enter</button>
         <button mat-raised-button (click)="goToPage('home')">Back</button>
         <button mat-raised-button (click)="goToPage('view-income')">View Income</button>
         

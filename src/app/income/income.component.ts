@@ -29,7 +29,18 @@ export class IncomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
+  createNewIncome(){
+    let request = {
+      family:  this.family,
+      amount: this.amount,
+      term: this.term
+    }
+    console.log(request.family);
+    this.familyService.createFamily(request).subscribe((response: any) => {
+      console.log(response);
+    });
+  }
+
   getFamilies(){
     let familyInfo:any = []
     this.familyService.getFamily().subscribe((res: any) => { 

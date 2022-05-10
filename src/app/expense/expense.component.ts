@@ -12,6 +12,9 @@ import { FamilyComponent } from '../family/family.component';
 export class ExpenseComponent implements OnInit {
   date: string;
   expense: string;
+  month!: string;
+  day!: number;
+  year!: number;
   amount: any;
   description: any;
   Expenses: any = [];

@@ -29,7 +29,7 @@
       </form>
     </mat-card>
 
-    <h3 class="p-3 text-center">Angular - Display a list of Families with ngFor</h3>
+    <h3 class="p-3 text-center">Added Families</h3>
 <div class="container box" style="marign-top:10px;">
     <table class="table table-striped">
           <thead>
@@ -47,4 +47,25 @@
           </tr>
         </tbody>
       </table>
+
+      <h3 class="p-3 text-center">All Families</h3>
+<div class="container box" style="marign-top:10px;">
+    <table class="table table-striped">
+          <thead>
+            <tr>
+              <td style="text-align:center"></td>
+                <th>Family</th>
+                <th>Status</th>
+            <tr>
+          </thead>
+        <tbody>
+          <tr *ngFor="let entry of Families">
+            <th scope="row"></th>
+              <td>{{entry.family}}</td>
+              <td>{{entry.status}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+
     </div>
