@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FamilyService } from '../family.service';
+import { IncomeService } from '../income.service';
 
 
 @Component({
@@ -13,47 +14,68 @@ export class IncomeComponent implements OnInit {
   family: any;
   amount: any;
   Incomes: any = [];
+  Families: any = [];
 
-  
 
-  constructor(private router: Router, private familyService: FamilyService) {
+
+  constructor(private router: Router, private familyService: FamilyService, private incomeService: IncomeService) {
 
     this.date = ""
     this.family = ""
     this.amount = ""
-    
+
 
    }
 
-  
+
 
   ngOnInit(): void {
+    this.getFamilies()
+    this.getIncomes()
   }
+
   createNewIncome(){
     let request = {
       family:  this.family,
       amount: this.amount,
-      term: this.date
+      Date: this.date
     }
     console.log(request.family);
-    this.familyService.createFamily(request).subscribe((response: any) => {
+    this.incomeService.createIncome(request).subscribe((response: any) => {
       console.log(response);
     });
   }
 
   getFamilies(){
     let familyInfo:any = []
-    this.familyService.getFamily().subscribe((res: any) => { 
+    this.familyService.getFamily().subscribe((res: any) => {
      let arr = res
      arr.forEach((element: any) => {
       // console.log(element)
-      
+
        familyInfo.push(element)
      });
-        
+
     });
 
     console.log(familyInfo);
+    this.Families = familyInfo
+  }
+
+  getIncomes(){
+    let incomeInfo:any = []
+    this.incomeService.getIncome().subscribe((res: any) => {
+     let arr = res
+     arr.forEach((element: any) => {
+      // console.log(element)
+
+       incomeInfo.push(element)
+     });
+
+    });
+
+    console.log(incomeInfo);
+    this.Incomes = incomeInfo
   }
 
   goToPage(PageName:string):void{
