@@ -25,9 +25,9 @@ export class IncomeService {
     //Sends a web request to update a income
     return this.webReqService.patch('api/income', {title});
   }
-  deleteIncome(){
+  deleteIncome(id:any){
     //Sends a web request to deleta a income
-    return this.webReqService.delete('api/income');
+    return this.webReqService.delete(`api/income/${id}`);
   }
 }
 
