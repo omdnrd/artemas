@@ -75,9 +75,13 @@ export class FamilyComponent implements OnInit {
       this.getFamilies() // Once the record gets deleted we refetch
     })
   }
-  editEntry(entry:any, payload: object):void {
-    this.familyService.updateFamily(entry._id, payload).subscribe((res:any) => {
+  updateEntry(entry:any):void {
+    this.familyService.updateFamily(entry._id, entry).subscribe((res:any) => {
       this.getFamilies() // After the record gets edited we refetch
     })
+  }
+
+  toggleEditEntry(entry:any){
+    entry.isEditing = !entry.isEditing;
   }
 }
