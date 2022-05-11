@@ -32,7 +32,7 @@ export class ExpenseComponent implements OnInit {
     ngOnInit(): void {
       this.getExpenses()
   }
-  createNewIncome(){
+  createNewExpense(){
     let request = {
       expense:  this.expense,
       amount: this.amount,
