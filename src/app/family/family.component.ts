@@ -54,13 +54,6 @@ export class FamilyComponent implements OnInit {
     console.log(familyInfo);
     this.Families = familyInfo
   }
-
-  updateFamilies(){
-    this.familyService.updateFamily('Testing').subscribe((response3: any) => {
-      console.log(response3);
-    });
-  }
-
   goToPage(PageName:string):void{
 
 
@@ -80,6 +73,11 @@ export class FamilyComponent implements OnInit {
   deleteEntry(entry:any):void {
     this.familyService.deleteFamily(entry._id).subscribe((res: any) => {
       this.getFamilies() // Once the record gets deleted we refetch
+    })
+  }
+  editEntry(entry:any, payload: object):void {
+    this.familyService.updateFamily(entry._id, payload).subscribe((res:any) => {
+      this.getFamilies() // After the record gets edited we refetch
     })
   }
 }
