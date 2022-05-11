@@ -20,6 +20,9 @@ export class IncomeService {
     //Sends a web request to get all families
     return this.webReqService.get('api/income');
   }
+  getAllIncome() {
+    return this.webReqService.get('api/income/getAllIncome')
+  }
   updateIncome(title: string){
     console.log(title)
     //Sends a web request to update a income
