@@ -87,6 +87,15 @@ export class ExpenseComponent implements OnInit {
     this.getExpenses() // Once the record gets deleted we refetch
   })
 }
+
+updateEntry(entry:any):void {
+  this.expenseService.updateExpense(entry._id, entry).subscribe((res:any) => {
+    this.getExpenses() // After the record gets edited we refetch
+  })
+}
+toggleEditEntry(entry:any){
+  entry.isEditing = !entry.isEditing;
+}
 }
 //@Component({
   //selector: 'datepicker-custom-icon-example',

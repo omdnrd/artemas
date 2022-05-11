@@ -23,10 +23,10 @@ export class IncomeService {
   getAllIncome() {
     return this.webReqService.get('api/income/getAllIncome')
   }
-  updateIncome(title: string){
-    console.log(title)
+  updateIncome(id: any, income: object){
+    console.log(id)
     //Sends a web request to update a income
-    return this.webReqService.patch('api/income', {title});
+    return this.webReqService.patch(`api/income/${id}`, income);
   }
   deleteIncome(id:any){
     //Sends a web request to deleta a income

@@ -29,42 +29,7 @@
 
         <br/>
 
-       <!--<mat-form-field appearance="fill">
-          <mat-label>Month</mat-label>
-          <mat-select [(ngModel)]="month" name="month">
-            <mat-option value="1">1</mat-option>
-            <mat-option value="2">2</mat-option>
-            <mat-option value="3">3</mat-option>
-            <mat-option value="4">4</mat-option>
-            <mat-option value="5">5</mat-option>
-            <mat-option value="6">6</mat-option>
-            <mat-option value="7">7</mat-option>
-            <mat-option value="8">8</mat-option>
-            <mat-option value="9">9</mat-option>
-            <mat-option value="10">10</mat-option>
-            <mat-option value="11">11</mat-option>
-            <mat-option value="12">12</mat-option>
-          </mat-select>
-        </mat-form-field>
-
-        <mat-form-field appearance="fill">
-          <mat-label>Day</mat-label>
-          <mat-select [(ngModel)]="day" name="day">
-            <mat-option value="Day">Day</mat-option>
-                        <mat-option value="Day">Day</mat-option>
-          </mat-select>
-        </mat-form-field>
-
-        <mat-form-field appearance="fill">
-          <mat-label>Year</mat-label>
-          <mat-select [(ngModel)]="year" name="year">
-            <mat-option value="Day">Year</mat-option>
-          </mat-select>
-        </mat-form-field>-->
-        <!--<mat-form-field appearance="fill">
-          <mat-label>Date</mat-label>
-          <input [(ngModel)]="date" name="date" value="date" matInput placeholder="mm/dd/yyyy" >
-        </mat-form-field>-->
+       
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Choose a date</mat-label>
           <input matInput [matDatepicker]="picker" placeholder="mm/dd/yyyy">
@@ -102,14 +67,26 @@
                 </tr>
               </thead>
             <tbody>
-                <tr *ngFor="let entry of Expenses ">
-                  <th scope="row"></th>
+                <ng-container *ngFor="let entry of Expenses ">
+                  <tr *ngIf="!entry.isEditing">
+                    <th scope="row"></th>
                     <td>{{entry.type}}</td>
                     <td>{{entry.amount}}</td>
                     <td>{{entry.Date}}</td>
                     <td>{{entry.description}}</td>
+                    <button (click)="toggleEditEntry(entry)">Edit</button>
                     <button (click)="deleteEntry(entry)">Delete</button>
                 </tr>
+                <tr *ngIf="entry.isEditing">
+                  <th scope="row"></th>
+                  <td><input [(ngModel)]="entry.type" name="type"></td>
+                  <td><input [(ngModel)]="entry.amount" name="amount"></td>
+                  <td><input [(ngModel)]="entry.Date" name="Date"></td>
+                  <td><input [(ngModel)]="entry.description" name="description"></td>
+                  <button (click)="[toggleEditEntry(entry), getExpenses()]">Cancel</button>
+                  <button (click)="updateEntry(entry)">Save</button>
+                </tr>
+              </ng-container>
             </tbody>
         </table>
       </div>

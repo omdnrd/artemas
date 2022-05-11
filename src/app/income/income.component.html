@@ -48,13 +48,24 @@
             </tr>
           </thead>
         <tbody>
-            <tr *ngFor="let entry of Incomes">
+            <ng-container *ngFor="let entry of Incomes">
+              <tr *ngIf="!entry.isEditing">
               <th scope="row"></th>
                 <td>{{entry.family}}</td>
                 <td>{{entry.amount}}</td>
                 <td>{{entry.Date}}</td>
+                <button (click)="toggleEditEntry(entry)">Edit</button>
                 <button (click)="deleteEntry(entry)">Delete</button>
             </tr>
+            <tr *ngIf="entry.isEditing">
+              <th scope="row"></th>
+              <td><input [(ngModel)]="entry.type" name="type"></td>
+              <td><input [(ngModel)]="entry.amount" name="amount"></td>
+              <td><input [(ngModel)]="entry.Date" name="Date"></td>
+              <button (click)="[toggleEditEntry(entry), getIncomes()]">Cancel</button>
+              <button (click)="updateEntry(entry)">Save</button>
+            </tr>
+          </ng-container>
         </tbody>
     </table>
   </div>

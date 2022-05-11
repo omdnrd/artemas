@@ -103,4 +103,12 @@ export class IncomeComponent implements OnInit {
       this.getIncomes() // Once the record gets deleted we refetch
     })
   }
+  updateEntry(entry:any):void {
+    this.incomeService.updateIncome(entry._id, entry).subscribe((res:any) => {
+      this.getIncomes() // After the record gets edited we refetch
+    })
+  }
+  toggleEditEntry(entry:any){
+    entry.isEditing = !entry.isEditing;
+  }
 }
