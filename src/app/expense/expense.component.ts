@@ -14,7 +14,7 @@ import { IncomeService } from '../income.service';
 })
 export class ExpenseComponent implements OnInit {
   date: string;
-  expense: string;
+  type: string;
   month!: string;
   day!: number;
   year!: number;
@@ -22,9 +22,9 @@ export class ExpenseComponent implements OnInit {
   description: any;
   Expenses: any = [];
 
-  constructor(private router: Router, private expenseService: ExpenseService, private incomeService: IncomeService) { 
+  constructor(private router: Router, private expenseService: ExpenseService, private incomeService: IncomeService) {
     this.date = new Date().toDateString();
-    this.expense = ""
+    this.type = ""
     this.amount = "00.00"
     this.description = ""
   }
@@ -32,14 +32,14 @@ export class ExpenseComponent implements OnInit {
     ngOnInit(): void {
       this.getExpenses()
   }
-  createNewIncome(){
+  createNewExpense(){
     let request = {
-      expense:  this.expense,
+      type:  this.type,
       amount: this.amount,
-      date: this.date,
+      Date: this.date,
       description: this.description
     }
-    console.log(request.expense);
+    console.log(request.type);
     this.expenseService.createExpense(request).subscribe((response: any) => {
       this.getExpenses()
     });
@@ -68,15 +68,15 @@ export class ExpenseComponent implements OnInit {
   }
 
   addEntry():void{
-    console.log(this.date + " " + this.expense + " " + this.amount + " " + this.description)
+    console.log(this.date + " " + this.type + " " + this.amount + " " + this.description)
     let entry = {
-      date: this.date,
-      expense: this.expense,
+      Date: this.date,
+      type: this.type,
       amount: this.amount,
       description: this.description
     }
 
-  
+
 
     this.Expenses.push(entry)
     console.log(this.Expenses)
@@ -86,10 +86,10 @@ export class ExpenseComponent implements OnInit {
   this.expenseService.deleteExpense(entry._id).subscribe((res: any) => {
     this.getExpenses() // Once the record gets deleted we refetch
   })
-} 
 }
-//@Component({  
-  //selector: 'datepicker-custom-icon-example',  
-  //templateUrl: 'datepicker-custom-icon-example.html',  
-//})  
-//export class DatepickerCustomIconExample {} 
+}
+//@Component({
+  //selector: 'datepicker-custom-icon-example',
+  //templateUrl: 'datepicker-custom-icon-example.html',
+//})
+//export class DatepickerCustomIconExample {}
