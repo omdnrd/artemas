@@ -16,5 +16,28 @@
         <br/>
         <button mat-raised-button (click)="goToPage('home')">Back</button>
       </form>
+
+      <h3 class="pt-3 text-center">Income By Family</h3>
+<div class="container box" style="margin-top:10px;">
+    <table class="table table-striped">
+          <thead>
+            <tr>
+              <td style="text-align: center"></td>
+                <th>Family</th>
+                <th>Total Amount</th>
+            </tr>
+          </thead>
+        <tbody>
+            <ng-container *ngFor="let entry of incomeByFamily">
+              <tr>
+              <th scope="row"></th>
+                <td>{{entry.familyName}}</td>
+                <td>{{entry.totalIncome}}</td>
+            </tr>
+            
+          </ng-container>
+        </tbody>
+    </table>
+  </div>
     </mat-card>
   </div>

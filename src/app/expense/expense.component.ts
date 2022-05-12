@@ -83,15 +83,19 @@ export class ExpenseComponent implements OnInit {
  }
 
  deleteEntry(entry:any):void {
+  if(confirm("Are you sure you would like to delete this entry?")){
   this.expenseService.deleteExpense(entry._id).subscribe((res: any) => {
     this.getExpenses() // Once the record gets deleted we refetch
   })
 }
+ }
 
 updateEntry(entry:any):void {
+  if(confirm("Are you sure you would like to update this entry?")){
   this.expenseService.updateExpense(entry._id, entry).subscribe((res:any) => {
     this.getExpenses() // After the record gets edited we refetch
   })
+}
 }
 toggleEditEntry(entry:any){
   entry.isEditing = !entry.isEditing;
