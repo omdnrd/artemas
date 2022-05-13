@@ -9,6 +9,7 @@ import { LoginComponent } from '../login/login.component';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { LogoutComponent } from '../logout/logout.component';
+import { HelperComponent } from '../helper/helper.component';
 
 import { ExpenseGuard } from '../expense.guard';
 import { ViewIncomeComponent } from '../view-income/view-income.component';
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'family' , component: FamilyComponent },
   { path: 'view-family' , component: ViewFamilyComponent},
   { path: 'export' , component: ExportComponent },
+  { path: 'helper', component: HelperComponent},
   { path: 'logout' , component: LogoutComponent}
 ];
 

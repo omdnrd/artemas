@@ -29,6 +29,7 @@ import { ExportComponent } from './export/export.component';
 import { ViewIncomeComponent } from './view-income/view-income.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ViewFamilyComponent } from './view-family/view-family.component';
+import { HelperComponent } from './helper/helper.component';
 
 
 
@@ -45,7 +46,8 @@ import { ViewFamilyComponent } from './view-family/view-family.component';
     ExportComponent,
     ViewIncomeComponent,
     LogoutComponent,
-    ViewFamilyComponent
+    ViewFamilyComponent,
+    HelperComponent
   ],
   imports: [
     AppRoutingModule,

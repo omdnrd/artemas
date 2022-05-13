@@ -1,0 +1,47 @@
+<div fxLayoutAlign="center center" fxFlexFill>
+    <mat-card fxFlex="25">
+  <mat-toolbar color="primary">Help Page</mat-toolbar>
+      <form fxLayoutAlign= "stretch" fxLayout="column">
+    <head>
+    </head>
+  <body>
+    <div style = "text-align: center;">
+    </div>
+    <br>
+    <strong>Home</strong>
+  
+    <p>On the Home Page, you will see 5 boxes in the center named: Income, Expense, Family, Analysis, and Export.
+       By clicking each individually, you will be brought to that selected page and will be able to track all of your income
+       from the selected families, keep track of numerous expense categories, import active/inactive families, and view a total
+       income/expenses.
+    </p>
+  
+    <strong>Income</strong>
+    <p>On the Income Page, you we be able to select the families you added from the 'Family Tab' in the given family drop-down box.
+       From there, you can input their given income you recieved as well as the date you received it on. By hitting 'Enter', you will
+       see the updated income category at the bottom of your screen.
+    </p>
+  
+    <strong>Expense</strong>
+    <p>On the Expense Page, very simliar to the Income Page, you will be able to select from different expense categories in the given drop-down menu:
+      Classroom supplies, food, utilities, outdoor equipment, office supplies, building, and other. From there, you will be able to input the expense
+      amount, choose the specific date of purchase, and a description of the expense. Once you hit 'Enter', you will see the updated expense category
+      at the bottom of your screen.
+    </p>
+  
+    <strong>Family</strong>
+    <p>On the Family Page, this is where you will be able to input the active Family for that enrollment period. Once you hit 'Add Family',
+      you will see the updated family category at the bottom of your screen. By hitting the 'View Families' button, you will be taken to a seperate
+      page allowing you to view all families.
+    </p>
+  
+    <strong>Analysis</strong>
+    <p>On the Analysis, this is where you will see all of the running totals of Income and Expenses, and see which family has given payment.
+    </p>
+  
+    <strong>Export</strong>
+    <p>On the Export Page, you will be able to generate downloadable invoices through the given buttons; 'Generate Invoice' and 'Generate CSV'.</p>
+    <button mat-raised-button (click)="goToPage('home')">Back</button>
+
+  
+  </body>
