@@ -1,21 +1,40 @@
-<p>view-income works!</p>
 <div fxLayoutAlign="center center" fxFlexFill>
     <mat-card fxFlex="25">
-      <mat-toolbar color="primary">View Income Page</mat-toolbar>
+      <mat-toolbar color="primary">Analysis</mat-toolbar>
       <form fxLayoutAlign= "stretch" fxLayout="column">
-        <!--<mat-form-field>
-          <input matInput placeholder="Enter New Family">
-        </mat-form-field>-->
 
         <br/>
+        <p>Total Expense: {{ totalExpense }}</p>
         <button mat-raised-button (click)="goToPage('home')">Expense placeholder</button>
         Date range options(weekly, monthly, yearly)
         <br/>
-        <button mat-raised-button (click)="goToPage('home')">Income placeholder</button>
-        Date range options(weekly, monthly, yearly)
+        <p>Total Income: {{ totalIncome }}</p>
 
         <br/>
         <button mat-raised-button (click)="goToPage('home')">Back</button>
       </form>
+
+      <h3 class="pt-3 text-center">Income By Family</h3>
+<div class="container box" style="margin-top:10px;">
+    <table class="table table-striped">
+          <thead>
+            <tr>
+              <td style="text-align: center"></td>
+                <th>Family</th>
+                <th>Total Amount</th>
+            </tr>
+          </thead>
+        <tbody>
+            <ng-container *ngFor="let entry of incomeByFamily">
+              <tr>
+              <th scope="row"></th>
+                <td>{{entry.familyName}}</td>
+                <td>{{entry.totalIncome}}</td>
+            </tr>
+            
+          </ng-container>
+        </tbody>
+    </table>
+  </div>
     </mat-card>
   </div>

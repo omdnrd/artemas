@@ -40,11 +40,26 @@
             <tr>
           </thead>
         <tbody>
-          <tr *ngFor="let entry of Families">
-            <th scope="row"></th>
+          <ng-container *ngFor="let entry of Families">
+            <tr *ngIf="!entry.isEditing">
+              <th scope="row"></th>
               <td>{{entry.familyName}}</td>
               <td>{{entry.status}}</td>
-          </tr>
+              <button (click)="toggleEditEntry(entry)">Edit</button>
+              <button (click)="deleteEntry(entry)">Delete</button>
+            </tr>    
+            <tr *ngIf="entry.isEditing">
+              <th scope="row"></th>
+              <td><input [(ngModel)]="entry.familyName" name="familyName"></td>
+              <td><mat-select [(ngModel)]="entry.status" name="status">
+                <mat-option value="active">Active</mat-option>
+                <mat-option value="inactive">Inactive</mat-option>
+
+              </mat-select></td>
+              <button (click)="[toggleEditEntry(entry), getFamilies()]">Cancel</button>
+              <button (click)="updateEntry(entry)">Save</button>
+            </tr>        
+          </ng-container>
         </tbody>
       </table>
 

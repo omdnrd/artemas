@@ -20,14 +20,17 @@ export class IncomeService {
     //Sends a web request to get all families
     return this.webReqService.get('api/income');
   }
-  updateIncome(title: string){
-    console.log(title)
-    //Sends a web request to update a income
-    return this.webReqService.patch('api/income', {title});
+  getAllIncome() {
+    return this.webReqService.get('api/income/getAllIncome')
   }
-deleteIncome(id:any){
-  //Sends a web request to deleta a income
-  return this.webReqService.delete(`api/income/${id}`);
-}
+  updateIncome(id: any, income: object){
+    console.log(id)
+    //Sends a web request to update a income
+    return this.webReqService.patch(`api/income/${id}`, income);
+  }
+  deleteIncome(id:any){
+    //Sends a web request to deleta a income
+    return this.webReqService.delete(`api/income/${id}`);
+  }
 }
 

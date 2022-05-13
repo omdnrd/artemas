@@ -20,7 +20,7 @@ export class IncomeComponent implements OnInit {
 
   constructor(private router: Router, private familyService: FamilyService, private incomeService: IncomeService) {
 
-    this.date = ""
+    this.date = new Date().toDateString();
     this.family = ""
     this.amount = ""
 
@@ -38,11 +38,11 @@ export class IncomeComponent implements OnInit {
     let request = {
       family:  this.family,
       amount: this.amount,
-      date: this.date
+      Date: this.date
     }
     console.log(request.family);
     this.incomeService.createIncome(request).subscribe((response: any) => {
-      console.log(response);
+      this.getIncomes()
     });
   }
 
@@ -50,10 +50,12 @@ export class IncomeComponent implements OnInit {
     let familyInfo:any = []
     this.familyService.getFamily().subscribe((res: any) => {
      let arr = res
-     arr.forEach((element: any) => {
+     arr.forEach((family: any) => {
       // console.log(element)
+      if(family.status == "active"){
+        familyInfo.push(family)
 
-       familyInfo.push(element)
+      }
      });
 
     });
@@ -89,7 +91,7 @@ export class IncomeComponent implements OnInit {
   addEntry():void{
     console.log(this.date + " " + this.family + " " + this.amount)
     let entry = {
-      date: this.date,
+      Date: this.date,
       family: this.family,
       amount: this.amount
     }
@@ -99,8 +101,21 @@ export class IncomeComponent implements OnInit {
   }
 
   deleteEntry(entry:any):void {
-    this.incomeService.deleteIncome(entry._id).subscribe((res: any) => {
-      this.getIncomes() // Once the record gets deleted we refetch
-    })
+    if(confirm("Are you sure you would like to delete this entry?")){
+      this.incomeService.deleteIncome(entry._id).subscribe((res: any) => {
+        this.getIncomes() // Once the record gets deleted we refetch
+      })
+    }
+    
+  }
+  updateEntry(entry:any):void {
+    if(confirm("Are you sure you would like to update this entry?")){
+      this.incomeService.updateIncome(entry._id, entry).subscribe((res:any) => {
+        this.getIncomes() // After the record gets edited we refetch
+     })
+   }
+  }
+  toggleEditEntry(entry:any){
+    entry.isEditing = !entry.isEditing;
   }
 }

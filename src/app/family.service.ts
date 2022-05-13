@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
 //import { title } from 'process';
 import { WebRequestService } from './web-request.service';
 
@@ -20,13 +21,13 @@ export class FamilyService {
     //Sends a web request to get all families
     return this.webReqService.get('api/family');
   }
-  updateFamily(title: string){
-    console.log(title)
+  updateFamily(id:any, family: object){
+    console.log(id)
     //Sends a web request to update a family
-    return this.webReqService.patch('api/family', {title});
+    return this.webReqService.patch(`api/family/${id}`, family);
   }
-  deleteFamily(){
+  deleteFamily(id:any){
     //Sends a web request to deleta a family
-    return this.webReqService.delete('api/family');
+    return this.webReqService.delete(`api/family/${id}`);
   }
 }
