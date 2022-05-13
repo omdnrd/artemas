@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IncomeService } from '../income.service';
 import { FamilyService } from '../family.service';
+import { ExpenseService } from '../expense.service';
+import { subscribeOn } from 'rxjs';
 
 
 @Component({
@@ -11,10 +13,12 @@ import { FamilyService } from '../family.service';
 })
 export class ViewIncomeComponent implements OnInit {
   totalIncome: any
+  totalExpense: any
   incomeByFamily: any
 
-  constructor(private router: Router, private incomeService: IncomeService, private familyService: FamilyService) {
+  constructor(private router: Router, private incomeService: IncomeService, private familyService: FamilyService, private expenseService: ExpenseService) {
     this.totalIncome = 0
+    this.totalExpense = 0
     this.incomeByFamily = []
   }
 
@@ -27,12 +31,19 @@ export class ViewIncomeComponent implements OnInit {
   }
   ngOnInit(): void {
     this.getAllIncome()
+    this.getAllExpense()
     this.getIncomeByFamily()
   }
 
   getAllIncome() {
     this.incomeService.getAllIncome().subscribe((res: any) => {
       this.totalIncome = res.totalIncome
+    })
+  }
+
+  getAllExpense() {
+    this.expenseService.getAllExpense().subscribe((res: any) => {
+      this.totalExpense = res.totalExpense
     })
   }
   
@@ -71,4 +82,17 @@ export class ViewIncomeComponent implements OnInit {
     });
 
   }
+  getExpenseByType(){
+    this.expenseService.getAllExpense().subscribe((res: any) => {
+      let expenseInfo:any =[]
+
+      let arr = res
+      arr.forEach((Element: any) => {
+
+
+        expenseInfo.push(Element)
+      })
+    })
+  }
 }
+

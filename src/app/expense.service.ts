@@ -16,8 +16,11 @@ export class ExpenseService {
     return this.webReqService.post('api/expense', expense);
   }
   getExpense(){
-    //Sends a web request to get all families
+    //Sends a web request to get all expenses
     return this.webReqService.get('api/expense');
+  }
+  getAllExpense(){
+    return this.webReqService.get('api/expense/getAllExpense')
   }
   updateExpense(id: any, expense: object){
     console.log(id)

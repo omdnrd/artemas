@@ -1,13 +1,10 @@
-<p>view-income works!</p>
 <div fxLayoutAlign="center center" fxFlexFill>
     <mat-card fxFlex="25">
-      <mat-toolbar color="primary">View Income Page</mat-toolbar>
+      <mat-toolbar color="primary">Analysis</mat-toolbar>
       <form fxLayoutAlign= "stretch" fxLayout="column">
-        <!--<mat-form-field>
-          <input matInput placeholder="Enter New Family">
-        </mat-form-field>-->
 
         <br/>
+        <p>Total Expense: {{ totalExpense }}</p>
         <button mat-raised-button (click)="goToPage('home')">Expense placeholder</button>
         Date range options(weekly, monthly, yearly)
         <br/>
