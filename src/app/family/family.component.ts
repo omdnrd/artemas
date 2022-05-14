@@ -71,10 +71,12 @@ export class FamilyComponent implements OnInit {
     console.log(this.Families)
   }
   deleteEntry(entry:any):void {
+    if(confirm("Are you sure you would like to delete this entry?")){
     this.familyService.deleteFamily(entry._id).subscribe((res: any) => {
       this.getFamilies() // Once the record gets deleted we refetch
     })
   }
+}
   updateEntry(entry:any):void {
     this.familyService.updateFamily(entry._id, entry).subscribe((res:any) => {
       this.getFamilies() // After the record gets edited we refetch

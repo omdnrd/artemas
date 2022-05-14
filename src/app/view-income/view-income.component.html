@@ -4,17 +4,16 @@
       <form fxLayoutAlign= "stretch" fxLayout="column">
 
         <br/>
-        <p>Total Expense: {{ totalExpense }}</p>
-        <button mat-raised-button (click)="goToPage('home')">Expense placeholder</button>
-        Date range options(weekly, monthly, yearly)
+        <b>Total Expense: ${{ totalExpense }}</b>
         <br/>
-        <p>Total Income: {{ totalIncome }}</p>
-
+        <br/>
+        <b>Total Income: ${{ totalIncome }}</b>
+        <br/>
         <br/>
         <button mat-raised-button (click)="goToPage('home')">Back</button>
       </form>
-
-      <h3 class="pt-3 text-center">Income By Family</h3>
+      <br>
+      <b>Income By Family</b>
 <div class="container box" style="margin-top:10px;">
     <table class="table table-striped">
           <thead>

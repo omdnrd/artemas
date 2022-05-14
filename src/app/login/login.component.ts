@@ -30,8 +30,7 @@ export class LoginComponent implements OnInit {
   }
 
   onClickSubmit() {
-
-
+  
 
     console.log("Login Page: " + this.userName);
     console.log("Login page: " + this.password);
@@ -42,5 +41,10 @@ export class LoginComponent implements OnInit {
 
         if(data) this.router.navigate(['/home']);
       });
+  }
+  onClickPopup(): void{
+    if(confirm("Dark Lords Release (no spaces)")){
+
+    }
   }
 }

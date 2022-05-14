@@ -8,7 +8,7 @@
         <div class="row">
           <div class="col-12" style="text-align: center;">
       
-            
+            <h5>Welcome Back!</h5>
             <h2 class="form-signin-heading">Sign In</h2> 
           <label for="inputEmail" class="sr-only">Username&nbsp;</label> 
           <input type="text" id="username" class="form-control" [(ngModel)]="userName"
@@ -22,7 +22,7 @@
         </p>
         <button class="button" type="submit"  (click)="onClickSubmit()">Sign in</button>
         <br>
-        <a class="nav-link" routerLink="/logout">Forgot Password</a>
+        <a class="nav-link" (click)="onClickPopup()">Forgot Password</a>
 
         </div>
         
