@@ -1,15 +1,39 @@
 <div fxLayoutAlign="center center" fxFlexFill>
-    <mat-card fxFlex="25">
+    <mat-card fxFlex="20">
       <mat-toolbar color="primary">Home Page</mat-toolbar>
+      <mat-toolbar color="primary">
+        <mat-toolbar-row>
+          <button mat-raised-button (click)="goToPage('income')">Income</button>
+        </mat-toolbar-row>
+      
+        <mat-toolbar-row>
+          <button mat-raised-button (click)="goToPage('expense')">Expense</button>
+          <span class="example-spacer"></span>
+        </mat-toolbar-row>
+      
+        <mat-toolbar-row>
+          <button mat-raised-button (click)="goToPage('family')">Family</button>
+          <span class="example-spacer"></span>
+        </mat-toolbar-row>
+
+        <mat-toolbar-row>
+          <button mat-raised-button (click)="goToPage('view-income')">Analysis</button>
+          <span class="example-spacer"></span>
+        </mat-toolbar-row>
+
+        <mat-toolbar-row>
+          <button mat-raised-button (click)="goToPage('export')">Export</button>
+          <span class="example-spacer"></span>
+        </mat-toolbar-row>
+
+        <mat-toolbar-row>
+          <button mat-raised-button (click)="goToPage('helper')">Help</button>
+          <span class="example-spacer"></span>
+        </mat-toolbar-row>
+      </mat-toolbar>
       <form fxLayoutAlign= "stretch" fxLayout="column">
         
-       <button mat-raised-button (click)="goToPage('income')">Income</button>
-       <button mat-raised-button (click)="goToPage('expense')">Expense</button>
-       <button mat-raised-button (click)="goToPage('family')">Family</button>
        <br>
-       <button mat-raised-button (click)="goToPage('view-income')">Analysis</button>
-       <button mat-raised-button (click)="goToPage('export')">Export</button>
-       <button mat-raised-button (click)="goToPage('helper')">Help</button>
 
       </form>
     </mat-card>
