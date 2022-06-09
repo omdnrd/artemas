@@ -1,6 +1,6 @@
-import { Component, Injectable, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 
@@ -43,8 +43,6 @@ export class LoginComponent implements OnInit {
       });
   }
   onClickPopup(): void{
-    if(confirm("Dark Lords Release (no spaces)")){
-
-    }
+    if(confirm("Dark Lords Release (no spaces)")){}
   }
 }

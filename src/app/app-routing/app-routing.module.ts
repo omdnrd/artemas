@@ -11,7 +11,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LogoutComponent } from '../logout/logout.component';
 import { HelperComponent } from '../helper/helper.component';
 
-import { ExpenseGuard } from '../expense.guard';
+//import { ExpenseGuard } from '../expense.guard';
 import { ViewIncomeComponent } from '../view-income/view-income.component';
 import { ViewFamilyComponent } from '../view-family/view-family.component';
 
