@@ -2,7 +2,7 @@
     <mat-card fxFlex="25">
       <mat-toolbar color="primary">View Family Page</mat-toolbar>
       <form fxLayoutAlign= "stretch" fxLayout="column">
-
+<!--Table used to discplay families and sum of all payments-->
         <mat-form-field appearance="fill">
             <mat-label>Family</mat-label>
             <mat-select [(ngModel)]="viewFamily" name="family">
@@ -12,8 +12,7 @@
               <mat-option value="Glaser">Nick Glaser</mat-option>
               <mat-option value="Bilzerian">Dan Bilzerian</mat-option>
             </mat-select>        
-          </mat-form-field>
-        
+          </mat-form-field>       
         <br/>
         <button mat-raised-button (click)="goToPage('family')">Back</button>
 

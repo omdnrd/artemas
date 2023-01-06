@@ -2,9 +2,7 @@
     <mat-card fxFlex="25">
       <mat-toolbar color="primary">Expense Page</mat-toolbar>
       <form fxLayoutAlign= "stretch" fxLayout="column">
-
         <br/>
-
         <mat-form-field appearance="fill">
           <mat-label>Expense Type</mat-label>
           <mat-select [(ngModel)]="type" name="type">
@@ -18,18 +16,13 @@
             <mat-option value="Other">Other</mat-option>
           </mat-select>
         </mat-form-field>
-
         <br/>
-
         <mat-form-field appearance="fill" >
           <mat-label>Amount</mat-label>
             <input [(ngModel)]="amount" name="amount" value="amount" matInput placeholder="000" >
         </mat-form-field>
-
-
         <br/>
-
-       
+<!--DatePicker-->
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Choose a date</mat-label>
           <input matInput [(ngModel)]="date" name="date" [matDatepicker]="picker">
@@ -38,27 +31,24 @@
           </mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
-
         <br/>
-
+<!--Expense Description-->
         <mat-form-field appearance="fill" >
          <mat-label>Description</mat-label>
            <input [(ngModel)]="description" name="description" value="description" matInput placeholder="Ex. Groceries from Schnucks" >
        </mat-form-field>
-
         <br/>
+<!--Expense Entry Action Events-->
         <button mat-raised-button (click)="[addEntry(), createNewExpense()]">Enter</button>
         <button mat-raised-button (click)="goToPage('home')">Back</button>
         <button mat-raised-button (click)="goToPage('view-income')">View Expenses</button>
         <br/>
-
-
       </form>
     </mat-card>
     <h3 class="p-3 text-center"></h3>
     <div class="container box" style="margin-top:10px;">
+    <!--This table is for displaying expenses from database-->
         <table class="table table-striped">
-        <caption>This table is for displaying expenses from database</caption>
               <thead>
                 <tr>
                   <td style="text-align:center"></td>
@@ -70,6 +60,7 @@
               </thead>
             <tbody>
                 <ng-container *ngFor="let entry of Expenses ">
+<!--Expense default state-->
                   <tr *ngIf="!entry.isEditing">
                     <th scope="row"></th>
                     <td>{{entry.type}}</td>
@@ -79,6 +70,7 @@
                     <button (click)="toggleEditEntry(entry)">Edit</button>
                     <button (click)="deleteEntry(entry)">Delete</button>
                 </tr>
+<!--Expense editing mode toggle-->
                 <tr *ngIf="entry.isEditing">
                   <th scope="row"></th>
                   <td><input [(ngModel)]="entry.type" name="type"></td>

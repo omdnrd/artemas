@@ -2,9 +2,7 @@
     <mat-card fxFlex="25">
       <mat-toolbar color="primary">Family Page</mat-toolbar>
       <form fxLayoutAlign= "stretch" fxLayout="column">
-
         <br/>
-
         <mat-form-field>
           <mat-label>First Name</mat-label>
           <input [(ngModel)]="firstName" name="firstName" value="firstName" matInput placeholder="First Name">
@@ -16,22 +14,17 @@
         </mat-form-field>
 
        <button mat-raised-button (click)="[addEntry(), createNewFamily()]">Add Family</button>
-
        <br/>
-
        <button mat-raised-button (click)="getFamilies()">View Families</button>
-
        <br/>
-
        <button mat-raised-button (click)="goToPage('home')">Back</button>
 
       </form>
     </mat-card>
-
-      <h3 class="p-3 text-center">All Families</h3>
+  <h3 class="p-3 text-center">All Families</h3>
 <div class="container box" style="marign-top:10px;">
+<!--This table is for displaying Families from database-->-
     <table class="table table-striped">
-      <caption>This table is for displaying Families from database</caption>
           <thead>
             <tr>
               <td style="text-align:center"></td>
@@ -40,6 +33,7 @@
             <tr>
           </thead>
         <tbody>
+<!--Default state for Family table-->
           <ng-container *ngFor="let entry of Families">
             <tr *ngIf="!entry.isEditing">
               <th scope="row"></th>
@@ -48,13 +42,14 @@
               <button (click)="toggleEditEntry(entry)">Edit</button>
               <button (click)="deleteEntry(entry)">Delete</button>
             </tr>    
+<!--Editing state for Family table-->
             <tr *ngIf="entry.isEditing">
               <th scope="row"></th>
               <td><input [(ngModel)]="entry.familyName" name="familyName"></td>
               <td><mat-select [(ngModel)]="entry.status" name="status">
                 <mat-option value="active">Active</mat-option>
                 <mat-option value="inactive">Inactive</mat-option>
-
+<!--Action Commands for Family functions-->
               </mat-select></td>
               <button (click)="[toggleEditEntry(entry), getFamilies()]">Cancel</button>
               <button (click)="updateEntry(entry)">Save</button>
@@ -62,6 +57,4 @@
           </ng-container>
         </tbody>
       </table>
-
-
     </div>

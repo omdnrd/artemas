@@ -2,25 +2,22 @@
     <mat-card fxFlex="25">
       <mat-toolbar color="primary">Income Page</mat-toolbar>
       <form fxLayoutAlign= "stretch" fxLayout="column">
-
         <br/>
-
+<!--Selection box for Family-->
         <mat-form-field appearance="fill">
           <mat-label>Family</mat-label>
           <mat-select [(ngModel)]="family" name="family">
             <mat-option *ngFor="let entry of Families" [value]="entry.familyName">{{ entry.familyName }}</mat-option>
           </mat-select>
         </mat-form-field>
-
         <br/>
-
+<!--Input box for amount-->
         <mat-form-field appearance="fill" >
           <mat-label>Amount</mat-label>
             <input [(ngModel)]="amount" name="amount" value="amount" matInput placeholder="$000" >
         </mat-form-field>
-
         <br/>
-
+<!--Income datepicker-->
         <mat-form-field appearance="fill">
           <mat-label>Choose a date</mat-label>
           <input matInput [(ngModel)]="date" name="date" [matDatepicker]="picker">
@@ -29,20 +26,18 @@
           </mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
-
         <br/>
+<!--Action commands for Income functions-->
         <button mat-raised-button (click)="[addEntry(), createNewIncome()]">Enter</button>
         <button mat-raised-button (click)="goToPage('home')">Back</button>
         <button mat-raised-button (click)="goToPage('view-income')">View Income</button>
-
         <br/>
-
       </form>
     </mat-card>
     <h3 class="p-3 text-center"></h3>
 <div class="container box" style="margin-top:10px;">
+<!--This table is for displaying payments from Families-->
     <table class="table table-striped">
-      <caption>This table is for displaying payments from Families</caption>
           <thead>
             <tr>
               <td style="text-align: center"></td>
@@ -52,6 +47,7 @@
             </tr>
           </thead>
         <tbody>
+<!--Family Table Default State-->
             <ng-container *ngFor="let entry of Incomes">
               <tr *ngIf="!entry.isEditing">
               <th scope="row"></th>
@@ -61,6 +57,7 @@
                 <button (click)="toggleEditEntry(entry)">Edit</button>
                 <button (click)="deleteEntry(entry)">Delete</button>
             </tr>
+<!--Family Table Editing State-->
             <tr *ngIf="entry.isEditing">
               <th scope="row"></th>
               <td><input [(ngModel)]="entry.family" name="family"></td>
