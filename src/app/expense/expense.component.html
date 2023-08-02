@@ -3,6 +3,7 @@
       <mat-toolbar color="primary">Expense Page</mat-toolbar>
       <form fxLayoutAlign= "stretch" fxLayout="column">
         <br/>
+        <!--Dropdow menu for expense types-->
         <mat-form-field appearance="fill">
           <mat-label>Expense Type</mat-label>
           <mat-select [(ngModel)]="type" name="type">
@@ -19,7 +20,7 @@
         <br/>
         <mat-form-field appearance="fill" >
           <mat-label>Amount</mat-label>
-            <input [(ngModel)]="amount" name="amount" value="amount" matInput placeholder="000" >
+            <input [(ngModel)]="amount" name="amount" value="amount" matInput placeholder="00.00" >
         </mat-form-field>
         <br/>
 <!--DatePicker-->
@@ -35,7 +36,7 @@
 <!--Expense Description-->
         <mat-form-field appearance="fill" >
          <mat-label>Description</mat-label>
-           <input [(ngModel)]="description" name="description" value="description" matInput placeholder="Ex. Groceries from Schnucks" >
+           <input [(ngModel)]="description" name="description" value="description" matInput placeholder="Ex. Groceries from Aldi's" >
        </mat-form-field>
         <br/>
 <!--Expense Entry Action Events-->
@@ -49,13 +50,14 @@
     <div class="container box" style="margin-top:10px;">
     <!--This table is for displaying expenses from database-->
         <table class="table table-striped">
+          <caption>This table is for displaying expenses</caption>
               <thead>
                 <tr>
                   <td style="text-align:center"></td>
-                    <th>Expense</th>
-                    <th>Amount</th>
-                    <th>Date</th>
-                    <th>Description</th>
+                    <th scope="col">Expense</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Description</th>
                 </tr>
               </thead>
             <tbody>

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ExpenseService } from '../expense.service';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { FamilyComponent } from '../family/family.component';
-import { IncomeComponent } from '../income/income.component';
+//import { MatDatepickerModule } from '@angular/material/datepicker';
+//import { FamilyComponent } from '../family/family.component';
+//import { IncomeComponent } from '../income/income.component';
 import { IncomeService } from '../income.service';
 
 
@@ -75,9 +75,6 @@ export class ExpenseComponent implements OnInit {
       amount: this.amount,
       description: this.description
     }
-
-
-
     this.Expenses.push(entry)
     console.log(this.Expenses)
  }

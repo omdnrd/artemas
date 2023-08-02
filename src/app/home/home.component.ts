@@ -19,6 +19,8 @@ export class HomeComponent implements OnInit {
     // outterrormessage
   }
   ngOnInit(): void {
+    // TODO document why this method 'ngOnInit' is empty
+  
   }
 
 }
